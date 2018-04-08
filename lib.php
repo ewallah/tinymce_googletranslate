@@ -26,10 +26,9 @@ defined('MOODLE_INTERNAL') || die();
 class tinymce_googletranslate extends editor_tinymce_plugin {
 
     protected function update_init_params(array &$params, context $context, array $options = null) {
-        global $OUTPUT;
-
-        // If useers cannot grade a quiz, they don't have permission to use it
-        if(!has_capability('mod/quiz:grade', $context)){
+        
+        // If useers cannot grade a quiz, they don't have permission to use it.
+        if (!has_capability('mod/quiz:grade', $context)) {
             return;
         }
         // If there is no API key provided.
@@ -40,17 +39,16 @@ class tinymce_googletranslate extends editor_tinymce_plugin {
 
         // If there is only one language installed.
         $installedlangs = get_string_manager()->get_list_of_translations(false);
-        // TODO: extra languages.
         $extralangs = $this->get_config('availlangs', '');
-        $cntextra = substr_count($extralangs, ',');
-        if (count($installedlangs) < 2) {
+        $cntextra = substr_count($extralangs, ',') + count($installedlangs);
+        if ($cntextra < 2) {
             return;
         }
-        // Add button after 'image'.
         if ($row = $this->find_button($params, 'image')) {
+            // Add button after 'image'.
             $this->add_button_after($params, $row, 'googletranslate', 'image');
-        // If 'image' is not found, add button in the end of the last row.
         } else {
+            // If 'image' is not found, add button in the end of the last row.
             $this->add_button_after($params, $this->count_button_rows($params), 'googletranslate');
         }
         // Add JS file, which uses default name.

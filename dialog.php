@@ -50,25 +50,33 @@ header('X-UA-Compatible: IE=edge');
     <div style="color:blue; margin-bottom:4px"><?php print_string('paying', 'tinymce_googletranslate'); ?></div>
     <div id="iframecontainer"></div>
         <div class="mceActionPanel">
-            <?php foreach ($langs as $name => $value) {
+            <?php
+            foreach ($langs as $name => $value) {
                 if (strlen($name) == 2) {
                     if ($name == 'en') {
-                        echo '<input type="radio" id="orilang' . $name . '" name="originallanguage" checked="checked">' . $name . '</input>';
+                        echo '<input type="radio" id="orilang' . $name . '" name="originallanguage" checked="checked">';
+                        echo $name . '</input>';
                     } else {
                         echo '<input type="radio" id="orilang' . $name . '" name="originallanguage">' . $name . '</input>';
                     }
                 }
-            }?>
+            }
+            ?>
             <input type="radio" id="orilang" name="originallanguage"><?php print_string('other', 'moodle'); ?></input>
-            <span style="float:right">Text only: <input type="checkbox" id="textonly"/>  Multilanguage Filter: <input type="checkbox" id="multifilter"/></span>
+            <span style="float:right">Text only: 
+                <input type="checkbox" id="textonly"/> Multilanguage Filter: 
+                <input type="checkbox" id="multifilter"/>
+            </span>
         </div>
         <div class="mceActionPanel">
-            <?php  foreach ($langs as $name => $value) {
+            <?php
+            foreach ($langs as $name => $value) {
                 if (strlen($name) == 2) {
                     echo '<input type="submit" id="insert" name="insert" value="' . $value .
                          '" onclick="return GoogleTranslateDialog.translateText(\'' . $name . '\');" />';
                 }
-            }?>
+            }
+            ?>
             <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
         </div>
 </body>
