@@ -21,7 +21,7 @@
  * @copyright 2014 Renaat Debleu (www.eWallah.net)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
+
 $string['availlangs'] = "Langues supplémentaires";
 $string['availlangs_desc'] = "Langues supplémentaires disponibles pour traduire. Échantillon : nl, fr";
 $string['googleapikey'] = "Google api clé";
