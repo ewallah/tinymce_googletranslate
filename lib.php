@@ -25,9 +25,18 @@ defined('MOODLE_INTERNAL') || die();
  */
 class tinymce_googletranslate extends editor_tinymce_plugin {
 
+    /**
+     * Adjusts TinyMCE init parameters for tinymce_managefiles
+     *
+     * @param array $params TinyMCE init parameters array
+     * @param context $context Context where editor is being shown
+     * @param array $options Options for this editor
+     */
     protected function update_init_params(array &$params, context $context, array $options = null) {
-        
-        // If useers cannot grade a quiz, they don't have permission to use it.
+        if (!isloggedin() or isguestuser()) {
+            return;
+        }
+        // If users cannot grade a quiz, they don't have permission to use it.
         if (!has_capability('mod/quiz:grade', $context)) {
             return;
         }
@@ -55,6 +64,5 @@ class tinymce_googletranslate extends editor_tinymce_plugin {
         $this->add_js_plugin($params);
         $params['googletranslate_extralangs'] = json_encode($extralangs);
         $params['googletranslate_apikey'] = $apikey;
-
     }
 }
