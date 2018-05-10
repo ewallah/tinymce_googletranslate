@@ -24,6 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2014080500;
-$plugin->requires  = 2013110500;
 $plugin->component = 'tinymce_googletranslate';
+$plugin->version   = 2018051000;
+$plugin->requires  = 2017111300;
+$plugin->maturity  = MATURITY_RC;
+$plugin->release   = '3.4+';
