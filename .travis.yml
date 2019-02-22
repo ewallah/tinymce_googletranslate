@@ -23,9 +23,9 @@ cache:
 
 php:
  - 7.2
+ - 7.3
 
 env:
-  - DB=pgsql MOODLE_BRANCH=MOODLE_35_STABLE
   - DB=pgsql MOODLE_BRANCH=MOODLE_36_STABLE
   - DB=pgsql MOODLE_BRANCH=master
 
@@ -34,7 +34,7 @@ before_install:
   - nvm install 8.9
   - nvm use 8.9
   - cd ../..
-  - composer create-project -n --no-dev --prefer-dist moodlerooms/moodle-plugin-ci ci ^2
+  - composer create-project -n --no-dev --prefer-dist blackboard-open-source/moodle-plugin-ci ci ^2
   - export PATH="$(cd ci/bin; pwd):$(cd ci/vendor/bin; pwd):$PATH"
 
 install:
@@ -44,11 +44,12 @@ script:
   - moodle-plugin-ci phplint
   - moodle-plugin-ci phpcpd
   - moodle-plugin-ci phpmd
+  - moodle-plugin-ci phpdoc
   - moodle-plugin-ci codechecker
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
   - moodle-plugin-ci grunt
-  - moodle-plugin-ci phpunit
+  - moodle-plugin-ci phpunit --coverage-text
   - moodle-plugin-ci behat
   - moodle-plugin-ci behat --profile chrome
