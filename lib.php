@@ -14,10 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Plugin for Googletranslate.
+ *
+ * @package   tinymce_googletranslate
+ * @copyright 2014 Renaat Debleu (www.eWallah.net)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Plugin for Googletranslate.
+ * Class for Googletranslate.
  *
  * @package   tinymce_googletranslate
  * @copyright 2014 Renaat Debleu (www.eWallah.net)
