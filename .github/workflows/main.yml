@@ -19,22 +19,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        moodle-branch: ['MOODLE_39_STABLE']
-        php: ['7.3']
+        moodle-branch: ['master', 'MOODLE_311_STABLE', 'MOODLE_310_STABLE']
+        php: ['7.4']
         database: ['mariadb']
 
-    name: ${{ matrix.moodle-branch }}  php ${{ matrix.php }}  ${{ matrix.operating-system }}
+    name: ${{ matrix.moodle-branch }}  php ${{ matrix.php }}  ${{ matrix.database }}
 
     steps:
       - name: checkout plugin
         uses: actions/checkout@v2
         with:
           path: this-plugin
-
-      - name: install node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.15.0'
 
       - name: setup PHP
         uses: shivammathur/setup-php@v2
