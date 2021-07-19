@@ -70,5 +70,4 @@ jobs:
         run: moodle-plugin-ci --ansi phpunit --coverage-text || true
 
       - name: chrome
-        run: moodle-plugin-ci --ansi behat --suite=ewa2 --profile=chrome --start-servers
-
+        run: moodle-plugin-ci --ansi behat --profile=chrome
