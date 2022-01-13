@@ -21,10 +21,7 @@
  * @copyright 2018 Renaat Debleu (www.eWallah.net)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 namespace tinymce_googletranslate\privacy;
-
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Privacy Subsystem for tinymce_googletranslate implementing null_provider.
