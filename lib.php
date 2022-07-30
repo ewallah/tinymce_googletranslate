@@ -39,7 +39,7 @@ class tinymce_googletranslate extends editor_tinymce_plugin {
      * @param array $options Options for this editor
      */
     protected function update_init_params(array &$params, context $context, array $options = null) {
-        if (!isloggedin() or isguestuser()) {
+        if (!isloggedin() || isguestuser()) {
             return;
         }
         // If users cannot grade a quiz, they don't have permission to use it.
